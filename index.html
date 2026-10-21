@@ -1,1 +1,122 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baseball Practice Planner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f0;
+      margin: 0;
+      padding: 25px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    h1 { color: #205c38; }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background: #205c38;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .practice {
+      background: #eaf2ea;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Baseball Practice Planner</h1>
+    <p>Organize your extra baseball practice!</p>
+
+    <h2>Add Practice</h2>
+    <form id="practiceForm">
+      <label for="activity">Practice Type</label>
+      <select id="activity">
+        <option>Hitting</option>
+        <option>Fielding</option>
+        <option>Throwing</option>
+      </select>
+
+      <label for="date">Practice Date</label>
+      <input type="date" id="date" required>
+
+      <label for="duration">Duration (minutes)</label>
+      <input type="number" id="duration" min="1" required>
+
+      <button type="submit">Add Practice</button>
+    </form>
+
+    <h2>Practice Schedule</h2>
+    <div id="schedule"></div>
+  </div>
+
+  <script>
+    let practices = [];
+
+    document.getElementById("practiceForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const activity =
+          document.getElementById("activity").value;
+        const date =
+          document.getElementById("date").value;
+        const duration =
+          Number(document.getElementById("duration").value);
+
+        if (!date || !Number.isFinite(duration) ||
+            duration <= 0) {
+          alert("Enter a valid date and duration.");
+          return;
+        }
+
+        practices.push({ activity, date, duration });
+        practices.sort((a, b) =>
+          a.date.localeCompare(b.date)
+        );
+
+        showPractices();
+        this.reset();
+      });
+
+    function showPractices() {
+      const schedule =
+        document.getElementById("schedule");
+      schedule.innerHTML = "";
+
+      practices.forEach(practice => {
+        const div = document.createElement("div");
+        div.className = "practice";
+
+        const text = document.createElement("p");
+        text.textContent =
+          practice.activity + " - " +
+          practice.date + " - " +
+          practice.duration + " minutes";
+
+        div.appendChild(text);
+        schedule.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
+
