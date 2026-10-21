@@ -88,7 +88,12 @@
           return;
         }
 
-        practices.push({ activity, date, duration });
+        practices.push({
+  activity,
+  date,
+  duration,
+  completed: false
+});
         practices.sort((a, b) =>
           a.date.localeCompare(b.date)
         );
@@ -111,9 +116,26 @@
           practice.activity + " - " +
           practice.date + " - " +
           practice.duration + " minutes";
+div.appendChild(text);
 
-        div.appendChild(text);
-        schedule.appendChild(div);
+const button = document.createElement("button");
+button.textContent = practice.completed
+  ? "Completed ✓"
+  : "Mark Complete";
+
+button.addEventListener("click", function() {
+  practice.completed = !practice.completed;
+  showPractices();
+});
+
+if (practice.completed) {
+  div.style.backgroundColor = "#c8e6c9";
+  text.style.textDecoration = "line-through";
+}
+
+div.appendChild(button);
+schedule.appendChild(div);
+        
       });
     }
   </script>
