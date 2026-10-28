@@ -1,57 +1,46 @@
 # Baseball Practice Planner
 
-## Project Overview
-My project is called Baseball Practice Planner. It is a simple website designed to help college baseball players organize extra practice around their classes and team activities.
+## Audience and Purpose
+My Baseball Practice Planner is designed for college baseball players who want to organize extra practice outside of team activities. The purpose is to make it easier to schedule hitting, fielding, and throwing practices and track completed workouts.
 
-The goal is to make it easier for players to plan their hitting, fielding, and throwing workouts and track their progress.
+## Live Website
+https://maxhansen7.github.io/baseball-practice-planner/
 
-## Target Audience
-My target audience is college baseball players who want to improve their skills and manage their practice schedules.
+## Features
+1. **Add Practice:** Players can choose a practice type, date, and duration, then add it to their schedule.
+2. **Mark Complete:** Players can mark finished practices as completed. The practice changes color and displays a line through the text.
+3. **Practice Schedule:** Players can view their planned practices in date order.
 
-## Website Features
-1. **Add Practice:** Players can choose hitting, fielding, or throwing, select a date, and enter how many minutes they want to practice.
-2. **Practice Schedule:** The website displays practices in date order so players can see what they have planned.
-3. **Mark Complete:** Players can mark a practice as completed. The practice turns green and the text is crossed out.
-
-## How to Run the Website
-1. Open my GitHub repository.
-2. Click the green Code button.
-3. Select Download ZIP.
-4. Extract the ZIP file.
-5. Open the index.html file in a web browser.
-6. Add practices and use the Mark Complete button to track progress.
-
-No special software or paid subscriptions are needed.
+## How to Use
+1. Open the website.
+2. Select Hitting, Fielding, or Throwing.
+3. Choose a practice date.
+4. Enter the duration in minutes.
+5. Click Add Practice.
+6. View the activity under Practice Schedule.
+7. Click Mark Complete when finished.
 
 ## Testing
-I completed six manual tests to check whether my website works correctly.
+I tested the website using five required tests:
+- Normal input
+- Invalid input
+- Repeated use
+- Keyboard accessibility
+- Mobile screen size
 
-- Adding a practice — PASS
-- Marking a practice complete — PASS
-- Completing one practice without affecting another — PASS
-- Displaying practices in date order — PASS
-- Rejecting an invalid duration — PASS
-- Refreshing the webpage — Confirmed limitation
+All five tests passed during my final checks.
 
-My test results are recorded in my test log, along with screenshots showing the website working.
-
-## GitHub Issue and Pull Request
-I used GitHub to track an improvement to my project.
-
-My issue was to add a Mark Complete button so players could track finished practices.
-
-I created a separate branch called add-complete-button, added the feature, tested it, and submitted a pull request before merging the change into the main branch.
-
-## AI Use
-I used ChatGPT to help write and improve my website code. AI helped me create the HTML, CSS, and JavaScript and add the Mark Complete feature.
-
-I personally tested the website, checked the results, and used GitHub to track the improvement.
+## Sources and Credits
+- HTML, CSS, and JavaScript were used to build the website.
+- ChatGPT assisted with planning, coding, troubleshooting, and documentation.
+- GitHub Pages was used to publish the website.
+- The project idea and testing were completed as part of my AI 101 midterm assignment.
 
 ## Known Limitations
-- Practices disappear when the webpage is refreshed because the website does not have permanent storage.
-- The website does not have user accounts.
+- Practices are not permanently saved when the page refreshes.
+- The website does not support user accounts.
 - Players cannot share schedules with teammates.
-- The website is a basic prototype, not a finished application.
+- The website does not currently include practice videos or reminders.
 
 ## Future Improvements
-In the future, I would like to add permanent storage, practice reminders, and a way to track improvement over time.
+In the future, I would like to add instructional baseball videos, practice reminders, and a way to save practices permanently.
