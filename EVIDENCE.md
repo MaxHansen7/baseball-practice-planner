@@ -34,7 +34,15 @@ The exact prompt records and additional details are in AI_USE.md.
 
 **After:** I added a Mark Complete button so players can track finished activities.
 
-**Before screenshot:** To be added from my original project evidence.
+**Before: Original Website Code**
+
+**After: Updated Website**
+
+This screenshot shows my updated website with baseball pictures and a completed practice.
+
+![After Screenshot](evidence/after.png)
+
+![Before Screenshot](evidence/before.png)
 
 **After screenshot:** To be added showing the completed practice.
 
