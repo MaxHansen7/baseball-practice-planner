@@ -61,3 +61,26 @@ This project helped me learn how AI can assist with building a website. I learne
 I also learned that it is important to check AI-generated code instead of assuming it works.
 
 Overall, ChatGPT helped me develop the project, but I was responsible for testing it and making sure it met the assignment requirements.
+## Lab 08 — AI Use Note
+
+**AI Tool Used:** ChatGPT
+
+**How I Used AI:**
+
+I used ChatGPT to help improve my Baseball Practice Planner website. ChatGPT helped me write and update HTML, CSS, and JavaScript code. It also helped me fix problems and test my website.
+
+**Improvements Made:**
+
+I added a demo login screen, a practice dashboard that shows total, completed, and remaining practices, and filters for hitting, fielding, and throwing. I also improved the website's appearance and layout.
+
+**What I Did Myself:**
+
+I followed the instructions, edited my GitHub files, tested the website, and checked that the features worked correctly. When something did not work, I used ChatGPT to help identify and fix the problem.
+
+**Testing:**
+
+I tested adding practices, marking them complete, using filters, logging in and out, entering invalid information, keyboard navigation, and viewing the website on a smaller screen.
+
+**What I Learned:**
+
+I learned how AI can help me improve a website even though I do not have much coding experience. I also learned that I still need to test the code myself because AI-generated code does not
