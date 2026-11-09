@@ -39,10 +39,94 @@
       margin-top: 10px;
       border-radius: 6px;
     }
-  </style>
+  .practice {
+  background: #eaf2ea;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* Demo Login Screen */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #123524, #2e7d32);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.login-box {
+  background: white;
+  padding: 35px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.login-box h1 {
+  color: #1b5e20;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  box-sizing: border-box;
+}
+
+.login-box button {
+  background: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #1b5e20;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+</style>
 </head>
 <body>
-  <div class="container">
+
+
+
+  
+<div id="loginScreen" class="login-screen">
+  <div class="login-box">
+    <h1>⚾ Baseball Practice Planner</h1>
+    <h2>Welcome, Student-Athlete!</h2>
+    <p>Enter your name to start planning your practices.</p>
+    <p><small>Demo only — no account or password required.</small></p>
+
+    <form id="demoLoginForm">
+      <label for="playerName">Player Name</label>
+      <input
+        type="text"
+        id="playerName"
+        placeholder="Enter your name"
+        autocomplete="off"
+        required
+      >
+      <button type="submit">Continue to Planner</button>
+    </form>
+  </div>
+</div>
+
+  <div class="container" id="planner" hidden>
+    <button type="button" id="logoutButton">Log Out</button>
     <h1>Baseball Practice Planner</h1>
     <p>Organize your extra baseball practice!</p>
     
@@ -172,6 +256,92 @@ schedule.appendChild(div);
       });
     }
   </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("demoLoginForm");
+  const loginScreen = document.getElementById("loginScreen");
+  const planner = document.getElementById("planner");
+  const playerName = document.getElementById("playerName");
+
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = playerName.value.trim();
+
+    if (!name) {
+      playerName.setCustomValidity("Please enter your name.");
+      playerName.reportValidity();
+      return;
+    }
+
+    loginScreen.hidden = true;
+    planner.hidden = false;
+
+    let welcome = document.getElementById("playerWelcome");
+
+    if (!welcome) {
+      welcome = document.createElement("p");
+      welcome.id = "playerWelcome";
+      planner.insertBefore(welcome, planner.firstChild);
+    }
+
+    welcome.textContent = "Welcome, " + name + "!";
+  });
+
+  playerName.addEventListener("input", function () {
+    playerName.setCustomValidity("");
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("demoLoginForm");
+  const loginScreen = document.getElementById("loginScreen");
+  const planner = document.getElementById("planner");
+  const playerName = document.getElementById("playerName");
+  const logoutButton = document.getElementById("logoutButton");
+
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = playerName.value.trim();
+
+    if (!name) {
+      playerName.setCustomValidity("Please enter your name.");
+      playerName.reportValidity();
+      return;
+    }
+
+    loginScreen.hidden = true;
+    planner.hidden = false;
+
+    let welcome = document.getElementById("playerWelcome");
+
+    if (!welcome) {
+      welcome = document.createElement("p");
+      welcome.id = "playerWelcome";
+      logoutButton.insertAdjacentElement("afterend", welcome);
+    }
+
+    welcome.textContent = "Welcome, " + name + "!";
+    logoutButton.focus();
+  });
+
+  playerName.addEventListener("input", function () {
+    playerName.setCustomValidity("");
+  });
+
+  logoutButton.addEventListener("click", function () {
+    planner.hidden = true;
+    loginScreen.hidden = false;
+    loginForm.reset();
+    playerName.focus();
+  });
+});
+</script>
+
 </body>
 </html>
 
