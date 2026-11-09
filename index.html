@@ -5,6 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Baseball Practice Planner</title>
+  
+/* Practice Dashboard */
+#practiceDashboard {
+  margin: 25px 0;
+  padding: 20px;
+  background: #f0f7f0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#practiceDashboard h2 {
+  color: #1b5e20;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.stat-card {
+  background: white;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 2px solid #2e7d32;
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  color: #1b5e20;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+@media (max-width: 500px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -130,6 +175,28 @@
     <h1>Baseball Practice Planner</h1>
     <p>Organize your extra baseball practice!</p>
     
+<!-- Practice Dashboard -->
+<section id="practiceDashboard" aria-label="Practice Dashboard">
+  <h2>⚾ My Practice Dashboard</h2>
+
+  <div class="dashboard-stats">
+    <div class="stat-card">
+      <h3>Total Practices</h3>
+      <p id="totalPractices">0</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Completed</h3>
+      <p id="completedPractices">0</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Remaining</h3>
+      <p id="remainingPractices">0</p>
+    </div>
+  </div>
+</section>
+
 
 <img
   src="stadium.jpg"
@@ -219,6 +286,18 @@
         this.reset();
       });
 
+function updateDashboard() {
+  const total = practices.length;
+  const completed = practices.filter(
+    practice => practice.completed
+  ).length;
+  const remaining = total - completed;
+
+  document.getElementById("totalPractices").textContent = total;
+  document.getElementById("completedPractices").textContent = completed;
+  document.getElementById("remainingPractices").textContent = remaining;
+}
+
     function showPractices() {
       const schedule =
         document.getElementById("schedule");
@@ -244,7 +323,6 @@ button.addEventListener("click", function() {
   practice.completed = !practice.completed;
   showPractices();
 });
-
 if (practice.completed) {
   div.style.backgroundColor = "#c8e6c9";
   text.style.textDecoration = "line-through";
@@ -253,7 +331,9 @@ if (practice.completed) {
 div.appendChild(button);
 schedule.appendChild(div);
         
-      });
+        });
+
+  updateDashboard();
     }
   </script>
 
