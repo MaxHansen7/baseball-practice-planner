@@ -91,3 +91,32 @@
 ## Known Limitation
 
 Practice activities disappear after refreshing the webpage because permanent browser storage has not been implemented.
+
+## Lab 08 — Baseball Practice Planner Redesign
+Date: November 9, 2026
+
+| Test | Expected Result | Actual Result | Status |
+|---|---|---|---|
+| Demo Login | Entering a name opens the planner | Planner opened successfully | PASS |
+| Log Out | Returns to the login screen | Returned to login screen | PASS |
+| Add Practice | New practice appears in schedule | Hitting practice was added | PASS |
+| Mark Complete | Practice and dashboard update | Completed count increased | PASS |
+| Dashboard | Total, completed, and remaining counts update | All three numbers updated | PASS |
+| Activity Filters | Show only selected practice type | All four filters worked | PASS |
+| Invalid Duration | Reject 0 minutes | Warning appeared; practice was not added | PASS |
+| Keyboard Navigation | Tab moves between fields and buttons | Tab navigation worked | PASS |
+| Narrow Screen | Content remains readable and usable | Layout appeared correctly in screenshot | PASS |
+
+### Peer Test
+A classmate tested the website.
+
+Peer feedback: [Enter what your classmate actually said.]
+
+Revision based on feedback: [Describe the change made after the peer test.]
+
+Retest result: [Describe what happened when you tested the change again.]
+
+### Remaining Limitations
+- The login is a demonstration, not real authentication.
+- Practice data may disappear when the page is refreshed.
+- The website does not support accounts or sharing practices between devices.
